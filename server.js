@@ -1,6 +1,10 @@
 const express = require("express");
 
+const bankRoutes = require("./route/bank.route");
+
 const app = express();
+
+app.use("/api/branches", bankRoutes);
 
 app.all("*", (req, res) => {
 	return res.status(404).json({ msg: "This route does not exists" });
